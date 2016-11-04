@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Sign Up Successful</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Hi <h:outputText id="FirstName" value="#{profileController.profile.firstName}" escape="false"/> ,<br/>
+            <h:outputText id="result" value="#{profileController.response}" escape="false"/><br/>
+            Your Account has been created successfully with details as follows:<br/>
+            UserID  :<h:outputText id="UID" value="#{profileController.profile.userID}" escape="false"/><br/>
+            Securty Question : <h:outputText id="SecurityQues" value="#{profileController.profile.securityQuestion}" escape="false"/>
+            Security Answer : <h:outputText id="SecurityAns" value="#{profileController.profile.securityAnswer}" escape="false"/>
+            <br/>
+            <h:commandButton id="back" value="Back" action="index.xhtml"/>
+        </h:form>
+    </h:body>
+</html>
+
