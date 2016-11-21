@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Signup</title>
     </h:head>
@@ -13,28 +14,31 @@
                 <f:facet name="header">
                     <h:outputText value="Signup"/>
                 </f:facet>
-                <h:outputLabel value = "First Name:"/>
-                <h:inputText id="FirstNameID" value="#{profileController.profile.firstName}">
+                <p:outputLabel value = "First Name:"/>
+                <p:inputText id="FirstNameID" value="#{profileController.profile.firstName}">
                     <f:validateLength minimum="2" maximum="25"/>
                     <f:validateRequired for="FirstNameID"/>
-                </h:inputText>
-                <h:outputLabel value = "Last Name: "/>
-                <h:inputText id="LastNameID" value="#{profileController.profile.lastName}">
+                </p:inputText>
+                
+                <p:outputLabel value = "Last Name: "/>
+                <p:inputText id="LastNameID" value="#{profileController.profile.lastName}">
                     <f:validateLength minimum="2" maximum="25" />
                     <f:validateRequired for="LastNameID"/>
-                </h:inputText>
-                <h:outputLabel value = "User ID: "/>
-                <h:inputText id="UserID" value="#{profileController.profile.userID}" >
+                </p:inputText>
+                
+                <p:outputLabel value = "User ID: "/>
+                <p:inputText id="UserID" value="#{profileController.profile.userID}" >
                     <f:validateRequired for="UserID"/>
                     <f:ajax event="keyup" render="userrName"/>
-                </h:inputText>
-                <h:outputText style = "color:red;" id="userrName" value="#{profileController.userResult}"/>
+                </p:inputText>
+                <p:outputLabel style = "color:red;" id="userrName" value="#{profileController.userResult}"/>
                 <p></p>
-                <h:outputLabel value = "Password: "/>
-                <h:inputSecret id="Password" value="#{profileController.profile.password}" >  
+                
+                <p:outputLabel value = "Password: "/>
+                <p:password id="Password" value="#{profileController.profile.password}" >  
                     <f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})" />  
-                </h:inputSecret>
-                <h:outputLabel>
+                </p:password>
+                <p:outputLabel>
                     <p> Password requirements:
                         <ul><li>6 to 20 characters string </li>
                             <li>At least one digit</li>
@@ -42,28 +46,33 @@
                             <li>One lower case letter</li>
                             <li>One special symbol (“@#$%”)</li></ul>
                     </p>
-                </h:outputLabel>
+                </p:outputLabel>
                 <p></p>
-                <h:outputLabel value = "Confirm Password: "/>
-                <h:inputSecret id="ConfirmPassword" value="#{profileController.profile.confirmPassword}" >
+                
+                <p:outputLabel value = "Confirm Password: "/>
+                <p:password id="ConfirmPassword" value="#{profileController.profile.confirmPassword}" >
                     <f:validateRequired for="ConfirmPassword"/>
-                </h:inputSecret>
-                <h:outputLabel value = "Email: "/>
-                <h:inputText id="Email" value="#{profileController.profile.email}">
+                </p:password>
+                
+                <p:outputLabel value = "Email: "/>
+                <p:inputText id="Email" value="#{profileController.profile.email}">
                     <f:validateRequired for="Email"/>
-                </h:inputText>
-                <h:outputLabel value = "Security Question: "/>
-                <h:inputText id="SecurityQuestion" value="#{profileController.profile.securityQuestion}">
+                </p:inputText>
+                
+                <p:outputLabel value = "Security Question: "/>
+                <p:inputText id="SecurityQuestion" value="#{profileController.profile.securityQuestion}">
                     <f:validateRequired for="SecurityQuestion"/>
-                </h:inputText>
-                <h:outputLabel value = "Security Answer: "/>
-                <h:inputText id="SecurityAnswer" value="#{profileController.profile.securityAnswer}">
+                </p:inputText>
+                
+                <p:outputLabel value = "Security Answer: "/>
+                <p:inputText id="SecurityAnswer" value="#{profileController.profile.securityAnswer}">
                     <f:validateRequired for="SecurityAnswer"/>
-                </h:inputText>
+                </p:inputText>
+                
                 <f:facet name="footer">
                     <h:panelGroup style="display:block; text-align:center">
-                        <h:commandButton id="submit" value="Submit" action = "#{profileController.createProfile()}"/><br/><br/>
-                        <h:commandButton id="back" value="Back" action ="index.xhtml"/>
+                        <p:commandButton id="submit" value="Submit" action = "#{profileController.createProfile()}"/><br/><br/>
+                        <p:commandButton id="back" value="Back" action ="index.xhtml"/>
                     </h:panelGroup>
                 </f:facet>
             </h:panelGrid>

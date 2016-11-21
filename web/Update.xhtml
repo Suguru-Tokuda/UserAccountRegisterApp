@@ -2,13 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head> 
         <title>Update</title>
         <f:metadata>
             <f:viewParam name="signUpProfile" value="#{profileController.profile}" />
             <f:event type="preRenderView" listener="#{profileController.onload}" />
-        </f:metadata></h:head>
+        </f:metadata>
+    </h:head>
 
     <h:body>  
         <h:form>
@@ -17,32 +19,32 @@
                 <f:facet name="header">
                     <h:outputText value="Update"/>
                 </f:facet>
-                <h:outputLabel value = "First Name:"/>
-                <h:inputText id="firstName" value="#{profileController.profile.firstName}" />
-                <h:outputLabel value = "Last Name:"/><h:inputText id="lastName" value="#{profileController.profile.lastName}">
+                <p:outputLabel value = "First Name:"/>
+                <p:inputText id="firstName" value="#{profileController.profile.firstName}" />
+                <p:outputLabel value = "Last Name:"/><h:inputText id="lastName" value="#{profileController.profile.lastName}">
                     <f:validateLength minimum="2" maximum="25" />
-                </h:inputText>
-                <h:outputLabel value = "User ID:"/><h:outputText id="UserID" value="#{profileController.profile.userID}">
-                </h:outputText>
-                <h:outputLabel value = "Password: "/>
-                <h:inputSecret id="Password" value="#{profileController.profile.password}" >
+                </p:inputText>
+                <p:outputLabel value = "User ID:"/><h:outputText id="UserID" value="#{profileController.profile.userID}">
+                </p:outputText>
+                <p:outputLabel value = "Password: "/>
+                <p:password id="Password" value="#{profileController.profile.password}" >
                     <f:validateRequired for="Password"/>     
-                </h:inputSecret>
-                <h:outputLabel value = "Password conformation:"/><h:inputSecret id="ConfirmPassword" value="#{profileController.profile.confirmPassword}" >
+                </p:password>
+                <p:outputLabel value = "Password conformation:"/><h:inputSecret id="ConfirmPassword" value="#{profileController.profile.confirmPassword}" >
                     <f:validateRequired for="ConfirmPassword"/>
-                </h:inputSecret>
-                <h:outputLabel value = "Email: "/>
-                <h:inputText id="Email" value="#{profileController.profile.email}">
-                </h:inputText>
-                <h:outputLabel value = "Security Question:"/>
-                <h:inputText id="SecurityQuestion" value="#{profileController.profile.securityQuestion}">
-                </h:inputText>
-                <h:outputLabel value = "Security Answer:"/>
-                <h:inputText id="SecurityAnswer" value="#{profileController.profile.securityAnswer}">
-                </h:inputText>
+                </p:inputSecret>
+                <p:outputLabel value = "Email: "/>
+                <p:inputText id="Email" value="#{profileController.profile.email}">
+                </p:inputText>
+                <p:outputLabel value = "Security Question:"/>
+                <p:inputText id="SecurityQuestion" value="#{profileController.profile.securityQuestion}">
+                </p:inputText>
+                <p:outputLabel value = "Security Answer:"/>
+                <p:inputText id="SecurityAnswer" value="#{profileController.profile.securityAnswer}">
+                </p:inputText>
                 <h:panelGroup style="display:block; text-align:center">
-                    <h:commandButton id="submit" value="Submit" action = "#{profileController.createProfile()}"/><br/><br/>
-                    <h:commandButton id="back" value="Back to Index" action ="index.xhtml"/>
+                    <p:commandButton id="submit" value="Submit" action = "#{profileController.createProfile()}"/><br/><br/>
+                    <p:commandButton id="back" value="Back to Index" action ="index.xhtml"/>
                 </h:panelGroup>
             </h:panelGrid>
         </h:form>   

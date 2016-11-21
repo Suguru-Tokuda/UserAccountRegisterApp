@@ -2,25 +2,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Login</title>
 
     </h:head>
     <h:body>
         <h:form>
-           
+
             <label id="Usernamelbl" ><h3>User Name</h3></label>
-            <h:inputText id="inputtxt" value="#{profileController.profile.userID}">
+            <p:inputText id="inputtxt" value="#{profileController.profile.userID}">
                 <f:validateLength minimum="1" />
-            </h:inputText>
+            </p:inputText>
             <label id="Passwordlbl"><h3>Password</h3></label>
-            <h:inputSecret id="inputtxt2" value="#{profileController.profile.password}">
+            <p:password id="inputtxt2" value="#{profileController.profile.password}">
                 <f:validateLength minimum="2" />
-            </h:inputSecret>
+            </p:password>
             <br/><br/>
-            <h:commandButton id="btn" value="Submit" style ="text-align:center;" action="#{profileController.login()}"/><br></br>
-            <h:outputLabel value="#{profileController.profile.outputMsg}" id="hm"/>
+            <p:commandButton id="btn" value="Submit" style ="text-align:center;" action="#{profileController.login()}"/><br></br>
+            <p:outputLabel value="#{profileController.profile.outputMsg}" id="hm"/>
         </h:form>
     </h:body>
 </html>
